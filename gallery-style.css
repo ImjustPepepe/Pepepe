@@ -1,9 +1,75 @@
+/* ===== FIXED BACKGROUND ===== */
+.bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("images/bg-glitch.png");
+  background-size: cover;
+  background-position: center top;
+  z-index: -2;
+}
+
+/* === SOFT BLUR / SMOKE OVERLAY === */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(120,120,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
+  filter: blur(40px);
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* background blur / smoke */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(120,120,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/bg-glitch.png");
+  background-size: cover;
+  background-position: center top;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== SCROLLABLE CONTENT ===== */
+.content {
+  position: relative;
+  z-index: 1;
+  overflow-y: auto; /* scroll inside content */
+  max-height: 100vh; /* full viewport height */
+}
+
 body {
   margin: 0;
-  background: #0a0a0c;
+  background: #050507;
   color: #cfcfcf;
   font-family: system-ui, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+
 }
+
 
 .gallery-header {
   text-align: center;
@@ -60,37 +126,17 @@ body {
   grid-column: span 2;
 }
 
-.lb-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 60px;
-  cursor: pointer;
-  padding: 20px;
-  opacity: 0.6;
-  z-index: 1000;
-}
-
-.lb-arrow:hover {
-  opacity: 1;
-}
-
-.lb-prev {
-  left: 20px;
-}
-
-.lb-next {
-  right: 20px;
-}
-
 #lightbox img {
   max-width: 90vw;
   max-height: 90vh;
   user-select: none;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 
 
 
