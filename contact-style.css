@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050507;
+  color: #cfcfcf;
+  font-family: system-ui, sans-serif;
+}
+
+/* background blur / smoke */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(120,120,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* layout */
+.contact {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 120px;
+}
+
+/* left info */
+.info h1 {
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  font-size: 0.85rem;
+  margin-bottom: 40px;
+}
+
+.text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.text span {
+  opacity: 0.9;
+}
+
+.small {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* socials */
+.socials {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.socials a {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #cfcfcf;
+  opacity: 0.6;
+}
+
+.socials a:hover {
+  opacity: 1;
+}
+
+/* form */
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input,
+textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #cfcfcf;
+  padding: 12px;
+  font-size: 0.85rem;
+}
+
+textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* submit */
+button {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: #cfcfcf;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button:hover {
+  opacity: 1;
+}
