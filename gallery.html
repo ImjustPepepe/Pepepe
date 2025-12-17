@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="gallery-style.css">
 </head>
 <body>
+  <!-- Fixed background -->
+  <div class="bg"></div>
+
+  <!-- Scrollable content -->
+  <div class="content">
 
 <header class="gallery-header">
   <h1>✧ gallery ✧</h1>
@@ -103,7 +108,7 @@
 
   // clicking the image does nothing
   lightboxImg.addEventListener("click", e => {
-    e.stopPropagation();
+  e.stopPropagation();
   });
 </script>
 
@@ -112,4 +117,7 @@
   <button class="lb-arrow lb-prev">‹</button>
   <img id="lightbox-img">
   <button class="lb-arrow lb-next">›</button>
+
 </div>
+</body>
+
