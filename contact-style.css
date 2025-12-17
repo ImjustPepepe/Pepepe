@@ -2,12 +2,49 @@
   box-sizing: border-box;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   background: #050507;
   color: #cfcfcf;
   font-family: system-ui, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+
 }
+
+/* === STATIC IMAGE BACKGROUND === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/bg-glitch.png"); /* or another bg */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  z-index: -2;
+}
+
+/* === SOFT BLUR / SMOKE OVERLAY === */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(120,120,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
+  filter: blur(40px);
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+
 
 /* background blur / smoke */
 .bg {
@@ -115,3 +152,36 @@ button {
 button:hover {
   opacity: 1;
 }
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.6) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/bg-glitch.png");
+  background-size: cover;
+  background-position: center top;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+  z-index: -1;
+  pointer-events: none;
+}
+
