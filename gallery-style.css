@@ -91,7 +91,7 @@ body {
 /* === TABLET === */
 @media (max-width: 1024px) {
   .gallery {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 24px;
   }
 }
@@ -160,6 +160,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 
 
 
