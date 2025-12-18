@@ -88,6 +88,14 @@ body {
   padding: 40px;
 }
 
+/* === TABLET === */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 24px;
+  }
+}
+
 /* === PHONE === */
 @media (max-width: 600px) {
   .gallery {
@@ -103,6 +111,7 @@ body {
     grid-column: span 1;
   }
 }
+
 
 .gallery-item {
   display: block;
@@ -151,6 +160,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 
 
 
