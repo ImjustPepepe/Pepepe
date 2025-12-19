@@ -116,16 +116,14 @@ body::after {
   z-index: -1;
   pointer-events: none;
 }
-/* === MOBILE TYPOGRAPHY === */
-@media (max-width: 600px) {
 
+@media (max-width: 600px) {
   .logo {
     max-width: 300px;
   }
 
   .role {
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
+    font-size: 0.85rem;
   }
 
   .nav {
@@ -133,6 +131,8 @@ body::after {
     gap: 0.8rem;
   }
 }
+
+
 
 
 
