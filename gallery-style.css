@@ -53,12 +53,6 @@ body::after {
 }
 
 /* ===== SCROLLABLE CONTENT ===== */
-.content {
-  position: relative;
-  z-index: 1;
-  overflow-y: auto; /* scroll inside content */
-  max-height: 100vh; /* full viewport height */
-}
 
 body {
   margin: 0;
@@ -123,5 +117,11 @@ body {
   opacity: 1;
   filter: blur(0);
 }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 
 
