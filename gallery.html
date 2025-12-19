@@ -81,66 +81,10 @@
   </a>
 </section>
 
-      <!-- LIGHTBOX -->
-<div id="lightbox">
-  <button class="lb-arrow lb-prev">‹</button>
-  <img id="lightbox-img">
-  <button class="lb-arrow lb-next">›</button>
-</div>
-
-<script>
-const items = [...document.querySelectorAll(".gallery-item")];
-const lightbox = document.getElementById("lightbox");
-const img = document.getElementById("lightbox-img");
-const prev = document.querySelector(".lb-prev");
-const next = document.querySelector(".lb-next");
-
-let current = 0;
-
-items.forEach((item, i) => {
-  item.addEventListener("click", e => {
-    e.preventDefault();
-    current = i;
-    img.src = item.href;
-    lightbox.style.display = "flex";
-  });
-});
-
-function show(index) {
-  current = (index + items.length) % items.length;
-  img.src = items[current].href;
-}
-
-prev.onclick = e => {
-  e.stopPropagation();
-  show(current - 1);
-};
-
-next.onclick = e => {
-  e.stopPropagation();
-  show(current + 1);
-};
-
-lightbox.onclick = () => {
-  lightbox.style.display = "none";
-  img.src = "";
-};
-</script>
-
-<script>
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  if (img.complete) {
-    img.classList.add("loaded");
-  } else {
-    img.addEventListener("load", () => {
-      img.classList.add("loaded");
-    });
-  }
-});
-</script>
 
 
 </body>
+
 
 
 
