@@ -90,7 +90,7 @@ body {
 
 @media (max-width: 1100px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -123,4 +123,5 @@ body {
   opacity: 1;
   filter: blur(0);
 }
+
 
