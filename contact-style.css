@@ -185,3 +185,35 @@ body::after {
   pointer-events: none;
 }
 
+@media (max-width: 800px) {
+  .contact {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+    gap: 40px;
+  }
+
+  .info h1 {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .text p {
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+
+
