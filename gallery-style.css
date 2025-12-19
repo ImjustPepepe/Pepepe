@@ -65,7 +65,6 @@ body {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
-}
 
 /* Mobile */
 @media (max-width: 600px) {
@@ -105,17 +104,6 @@ body {
 .gallery-item img.loaded {
   opacity: 1;
   filter: blur(0);
-}
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.92);
-
-  display: none;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 9999;
 }
 
 
