@@ -81,37 +81,52 @@
   </a>
 </section>
 
-<script>
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  document.querySelectorAll(".gallery-item").forEach(item => {
-    item.addEventListener("click", e => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      lightboxImg.src = item.getAttribute("href");
-      lightbox.style.display = "flex";
-    });
-  });
-
-  // click outside image closes lightbox
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxImg.src = "";
-  });
-
-  // clicking the image does nothing
-  lightboxImg.addEventListener("click", e => {
-  e.stopPropagation();
-  });
-</script>
-
-<!-- LIGHTBOX -->
+  <!-- LIGHTBOX -->
 <div id="lightbox">
   <button class="lb-arrow lb-prev">‹</button>
   <img id="lightbox-img">
   <button class="lb-arrow lb-next">›</button>
+</div>
+
+<script>
+const items = [...document.querySelectorAll(".gallery-item")];
+const lightbox = document.getElementById("lightbox");
+const img = document.getElementById("lightbox-img");
+const prev = document.querySelector(".lb-prev");
+const next = document.querySelector(".lb-next");
+
+let current = 0;
+
+items.forEach((item, i) => {
+  item.addEventListener("click", e => {
+    e.preventDefault();
+    current = i;
+    img.src = item.href;
+    lightbox.style.display = "flex";
+  });
+});
+
+function show(index) {
+  current = (index + items.length) % items.length;
+  img.src = items[current].href;
+}
+
+prev.onclick = e => {
+  e.stopPropagation();
+  show(current - 1);
+};
+
+next.onclick = e => {
+  e.stopPropagation();
+  show(current + 1);
+};
+
+lightbox.onclick = () => {
+  lightbox.style.display = "none";
+  img.src = "";
+};
+</script>
+
 
 </body>
 
@@ -126,6 +141,7 @@ document.querySelectorAll(".gallery-item img").forEach(img => {
   }
 });
 </script>
+
 
 
 
