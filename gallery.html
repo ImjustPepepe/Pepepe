@@ -18,12 +18,6 @@
   <p> ........................... <p>
 
 </header>
-    <!-- LIGHTBOX -->
-<div id="lightbox">
-  <button class="lb-arrow lb-prev">‹</button>
-  <img id="lightbox-img">
-  <button class="lb-arrow lb-next">›</button>
-</div>
 
 <section class="gallery">
   <a href="images/art15-full.jpg" class="gallery-item">
@@ -87,6 +81,13 @@
   </a>
 </section>
 
+      <!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-arrow lb-prev">‹</button>
+  <img id="lightbox-img">
+  <button class="lb-arrow lb-next">›</button>
+</div>
+
 <script>
 const items = [...document.querySelectorAll(".gallery-item")];
 const lightbox = document.getElementById("lightbox");
@@ -140,6 +141,7 @@ document.querySelectorAll(".gallery-item img").forEach(img => {
 
 
 </body>
+
 
 
 
