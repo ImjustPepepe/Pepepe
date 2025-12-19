@@ -104,9 +104,16 @@ body::before {
   inset: 0;
   background-image: url("images/bg-glitch.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   z-index: -2;
+
+  /* animation start state */
+  opacity: 0;
+  filter: blur(20px);
+
+  animation: bgFadeIn 1.2s ease forwards;
 }
+
 
 body::after {
   content: "";
@@ -131,6 +138,15 @@ body::after {
     gap: 0.8rem;
   }
 }
+
+@keyframes bgFadeIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
 
 
 
