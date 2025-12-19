@@ -118,31 +118,7 @@ body {
   z-index: 9999;
 }
 
-#lightbox img {
-  max-width: 92vw;
-  max-height: 92vh;
-  object-fit: contain;
-}
 
-.lb-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 56px;
-  cursor: pointer;
-  opacity: 0.6;
-  z-index: 10000;
-}
-
-.lb-arrow:hover {
-  opacity: 1;
-}
-
-.lb-prev { left: 20px; }
-.lb-next { right: 20px; }
 
 
 
