@@ -145,6 +145,10 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
+
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
 
 #lightbox img {
@@ -168,6 +172,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 
 
 
