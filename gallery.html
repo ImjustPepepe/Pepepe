@@ -119,7 +119,10 @@
   <button class="lb-arrow lb-next">›</button>
 
 </div>
+
+<script> document.querySelectorAll(".gallery-item img").forEach(img => { if (img.complete) { img.classList.add("loaded"); } else { img.addEventListener("load", () => { img.classList.add("loaded"); }); } }); </script>
 </body>
+
 
 
 
