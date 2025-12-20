@@ -25,11 +25,16 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("images/bg-glitch.png"); /* or another bg */
-  background-repeat: no-repeat;
-  background-position: center top;
+  background-image: url("images/bg-glitch.png");
   background-size: cover;
+  background-position: center top;
   z-index: -2;
+
+  /* animation start state */
+  opacity: 0;
+  filter: blur(20px);
+
+  animation: bgFadeIn 1.2s ease forwards;
 }
 
 /* === SOFT BLUR / SMOKE OVERLAY === */
@@ -55,6 +60,15 @@ body::before {
     radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
   filter: blur(40px);
   z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+  z-index: -1;
+  pointer-events: none;
 }
 
 .center {
@@ -98,32 +112,6 @@ body::before {
   opacity: 0.8;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("images/bg-glitch.png");
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-
-  /* animation start state */
-  opacity: 0;
-  filter: blur(20px);
-
-  animation: bgFadeIn 1.2s ease forwards;
-}
-
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
-  z-index: -1;
-  pointer-events: none;
-}
-
 @media (max-width: 600px) {
   .logo {
     max-width: 300px;
@@ -145,6 +133,7 @@ body::after {
     filter: blur(0);
   }
 }
+
 
 
 
