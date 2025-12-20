@@ -39,9 +39,16 @@ body::before {
   inset: 0;
   background-image: url("images/bg-glitch.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   z-index: -2;
+
+  /* animation start state */
+  opacity: 0;
+  filter: blur(20px);
+
+  animation: bgFadeIn 1.2s ease forwards;
 }
+
 
 body::after {
   content: "";
@@ -98,12 +105,13 @@ body {
 /* Mobile */
 @media (max-width: 600px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 16px;
   }
 }
 
-  /* disable big-image layout on phone */
+
+  /* disable big-image spanning on mobile */
   .gallery-item:nth-last-child(1),
   .gallery-item:nth-last-child(2),
   .gallery-item:nth-last-child(3) {
@@ -112,17 +120,23 @@ body {
 }
 
 
+
 .gallery-item {
   display: block;
   overflow: hidden;
 }
 
-.gallery-item img { 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
+.gallery-item img {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
+
+.gallery-item img.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
 
 .gallery-item:hover img {
   opacity: 0.75;
@@ -159,6 +173,15 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+@keyframes bgFadeIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
 
 
 
