@@ -1,3 +1,124 @@
-body { width: 100%; overflow-x: hidden; } and this is for html: <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Gallery</title> <link rel="stylesheet" href="gallery-style.css"> </head> <body> <!-- Fixed background --> <div class="bg"></div> <!-- Scrollable content --> <header class="gallery-header"> <h1>✧ gallery ✧</h1> <p>⁺‧₊examples of my past works₊‧⁺</p> <p> ........................... <p> </header> <section class="gallery"> <a href="images/art15-full.jpg" class="gallery-item"> <img src="images/art15-thumb.jpg" alt=""> </a> <a href="images/art14-full.jpg" class="gallery-item"> <img src="images/art14-thumb.jpg" alt=""> </a> <a href="images/art13-full.jpg" class="gallery-item"> <img src="images/art13-thumb.jpg" alt=""> </a> <a href="images/art12-full.jpg" class="gallery-item"> <img src="images/art12-thumb.jpg" alt=""> </a> <a href="images/art11-full.jpg" class="gallery-item"> <img src="images/art11-thumb.jpg" alt=""> </a> <a href="images/art10-full.jpg" class="gallery-item"> <img src="images/art10-thumb.jpg" alt=""> </a> <a href="images/art9-full.jpg" class="gallery-item"> <img src="images/art9-thumb.jpg" alt=""> </a> <a href="images/art8-full.jpg" class="gallery-item"> <img src="images/art8-thumb.jpg" alt=""> </a> <a href="images/art7-full.jpg" class="gallery-item"> <img src="images/art7-thumb.jpg" alt=""> </a> <a href="images/art6-full.jpg" class="gallery-item"> <img src="images/art6-thumb.jpg" alt=""> </a> <a href="images/art5-full.jpg" class="gallery-item"> <img src="images/art5-thumb.jpg" alt=""> </a> <a href="images/art4-full.jpg" class="gallery-item"> <img src="images/art4-thumb.jpg" alt=""> </a> <a href="images/art3-full.jpg" class="gallery-item"> <img src="images/art3-thumb.jpg" alt=""> </a> <a href="images/art2-full.jpg" class="gallery-item"> <img src="images/art2-thumb.jpg" alt=""> </a> <a href="images/art1-full.jpg" class="gallery-item"> <img src="images/art1-thumb.jpg" alt=""> </a> </section>   <!-- LIGHTBOX --> <div id="lightbox"> <button class="lb-arrow lb-prev">‹</button> <img id="lightbox-img"> <button class="lb-arrow lb-next">›</button>  <script> const lightbox = document.getElementById("lightbox"); const lightboxImg = document.getElementById("lightbox-img"); document.querySelectorAll(".gallery-item").forEach(item => { item.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); lightboxImg.src = item.getAttribute("href"); lightbox.style.display = "flex"; }); }); // click outside image closes lightbox lightbox.addEventListener("click", () => { lightbox.style.display = "none"; lightboxImg.src = ""; }); // clicking the image does nothing lightboxImg.addEventListener("click", e => { e.stopPropagation(); }); </script>  </body> <script> document.querySelectorAll(".gallery-item img").forEach(img => { if (img.complete) { img.classList.add("loaded"); } else { img.addEventListener("load", () => { img.classList.add("loaded"); }); } }); </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="gallery-style.css">
+</head>
+<body>
+  <!-- Fixed background -->
+  <div class="bg"></div>
+
+  <!-- Scrollable content -->
+  <div class="content">
+
+<header class="gallery-header">
+  <h1>✧ gallery ✧</h1>
+  <p>⁺‧₊examples of my past works₊‧⁺</p>
+  <p> ........................... <p>
+
+</header>
+
+<section class="gallery">
+  <a href="images/art15-full.jpg" class="gallery-item">
+    <img src="images/art15-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art14-full.jpg" class="gallery-item">
+    <img src="images/art14-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art13-full.jpg" class="gallery-item">
+    <img src="images/art13-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art12-full.jpg" class="gallery-item">
+    <img src="images/art12-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art11-full.jpg" class="gallery-item">
+    <img src="images/art11-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art10-full.jpg" class="gallery-item">
+    <img src="images/art10-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art9-full.jpg" class="gallery-item">
+    <img src="images/art9-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art8-full.jpg" class="gallery-item">
+    <img src="images/art8-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art7-full.jpg" class="gallery-item">
+    <img src="images/art7-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art6-full.jpg" class="gallery-item">
+    <img src="images/art6-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art5-full.jpg" class="gallery-item">
+    <img src="images/art5-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art4-full.jpg" class="gallery-item">
+    <img src="images/art4-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art3-full.jpg" class="gallery-item">
+    <img src="images/art3-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art2-full.jpg" class="gallery-item">
+    <img src="images/art2-thumb.jpg" alt="">
+  </a>
+
+  <a href="images/art1-full.jpg" class="gallery-item">
+    <img src="images/art1-thumb.jpg" alt="">
+  </a>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <img id="lightbox-img">
+</div>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".gallery-item").forEach(item => {
+    item.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      lightboxImg.src = item.getAttribute("href");
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // click outside image closes lightbox
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+  });
+
+  // clicking the image does nothing
+  lightboxImg.addEventListener("click", e => {
+  e.stopPropagation();
+  });
+</script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-arrow lb-prev">‹</button>
+  <img id="lightbox-img">
+  <button class="lb-arrow lb-next">›</button>
+
+</div>
+</body>
 
 
