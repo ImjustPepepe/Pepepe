@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery</title>
   <link rel="stylesheet" href="gallery-style.css">
 </head>
@@ -11,6 +10,7 @@
   <div class="bg"></div>
 
   <!-- Scrollable content -->
+  <div class="content">
 
 <header class="gallery-header">
   <h1>✧ gallery ✧</h1>
@@ -81,9 +81,46 @@
   </a>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <img id="lightbox-img">
+</div>
 
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
 
+  document.querySelectorAll(".gallery-item").forEach(item => {
+    item.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      lightboxImg.src = item.getAttribute("href");
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // click outside image closes lightbox
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+  });
+
+  // clicking the image does nothing
+  lightboxImg.addEventListener("click", e => {
+  e.stopPropagation();
+  });
+</script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-arrow lb-prev">‹</button>
+  <img id="lightbox-img">
+  <button class="lb-arrow lb-next">›</button>
+
+</div>
 </body>
+
 
 
 
