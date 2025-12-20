@@ -20,6 +20,18 @@ body {
 
 }
 
+/* === STATIC IMAGE BACKGROUND === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/bg-glitch.png"); /* or another bg */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  z-index: -2;
+}
+
 /* === SOFT BLUR / SMOKE OVERLAY === */
 .bg {
   position: fixed;
@@ -133,6 +145,7 @@ body::after {
     filter: blur(0);
   }
 }
+
 
 
 
