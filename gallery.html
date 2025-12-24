@@ -21,63 +21,63 @@
 
 <section class="gallery">
   <a href="images/art15-full.jpg" class="gallery-item">
-    <img src="images/art15-thumb.jpg" alt="">
+    <img src="images/art15-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art14-full.jpg" class="gallery-item">
-    <img src="images/art14-thumb.jpg" alt="">
+    <img src="images/art14-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art13-full.jpg" class="gallery-item">
-    <img src="images/art13-thumb.jpg" alt="">
+    <img src="images/art13-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art12-full.jpg" class="gallery-item">
-    <img src="images/art12-thumb.jpg" alt="">
+    <img src="images/art12-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art11-full.jpg" class="gallery-item">
-    <img src="images/art11-thumb.jpg" alt="">
+    <img src="images/art11-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art10-full.jpg" class="gallery-item">
-    <img src="images/art10-thumb.jpg" alt="">
+    <img src="images/art10-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art9-full.jpg" class="gallery-item">
-    <img src="images/art9-thumb.jpg" alt="">
+    <img src="images/art9-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art8-full.jpg" class="gallery-item">
-    <img src="images/art8-thumb.jpg" alt="">
+    <img src="images/art8-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art7-full.jpg" class="gallery-item">
-    <img src="images/art7-thumb.jpg" alt="">
+    <img src="images/art7-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art6-full.jpg" class="gallery-item">
-    <img src="images/art6-thumb.jpg" alt="">
+    <img src="images/art6-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art5-full.jpg" class="gallery-item">
-    <img src="images/art5-thumb.jpg" alt="">
+    <img src="images/art5-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art4-full.jpg" class="gallery-item">
-    <img src="images/art4-thumb.jpg" alt="">
+    <img src="images/art4-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art3-full.jpg" class="gallery-item">
-    <img src="images/art3-thumb.jpg" alt="">
+    <img src="images/art3-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art2-full.jpg" class="gallery-item">
-    <img src="images/art2-thumb.jpg" alt="">
+    <img src="images/art2-thumb.jpg" loading="lazy" alt="">
   </a>
 
   <a href="images/art1-full.jpg" class="gallery-item">
-    <img src="images/art1-thumb.jpg" alt="">
+    <img src="images/art1-thumb.jpg" loading="lazy" alt="">
   </a>
 </section>
 
@@ -106,5 +106,18 @@ lightbox.addEventListener("click", () => {
 });
 
 </script>
+
+<script>
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  if (img.complete) {
+    img.classList.add("loaded");
+  } else {
+    img.addEventListener("load", () => {
+      img.classList.add("loaded");
+    });
+  }
+});
+</script>
+
 
 </body>
