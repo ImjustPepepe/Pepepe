@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery</title>
   <link rel="stylesheet" href="gallery-style.css">
 </head>
@@ -89,46 +88,23 @@
 
 <script>
   const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+const lightboxImg = document.getElementById("lightbox-img");
 
-  document.querySelectorAll(".gallery-item").forEach(item => {
-    item.addEventListener("click", e => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      lightboxImg.src = item.getAttribute("href");
-      lightbox.style.display = "flex";
-    });
+document.querySelectorAll(".gallery-item").forEach(item => {
+  item.addEventListener("click", e => {
+    e.preventDefault();
+    lightboxImg.src = item.href;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
   });
-
-  // click outside image closes lightbox
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxImg.src = "";
-  });
-
-  // clicking the image does nothing
-  lightboxImg.addEventListener("click", e => {
-  e.stopPropagation();
-  });
-</script>
-
-    <script>
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  if (img.complete) {
-    img.classList.add("loaded");
-  } else {
-    img.addEventListener("load", () => {
-      img.classList.add("loaded");
-    });
-  }
 });
+
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+  lightboxImg.src = "";
+  document.body.style.overflow = "";
+});
+
 </script>
 
-    
 </body>
-
-
-
-
-
