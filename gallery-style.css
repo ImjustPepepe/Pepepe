@@ -111,6 +111,11 @@ body {
   opacity: 0.75;
 }
 
+.gallery-item:nth-last-child(1),
+.gallery-item:nth-last-child(2), 
+.gallery-item:nth-last-child(3) 
+{ grid-column: span 2; }
+
 #lightbox {
   position: fixed;
   inset: 0;
@@ -140,4 +145,6 @@ body {
 
 html, body {
   height: 100%;
-  margin
+  margin: 0;
+}
+
