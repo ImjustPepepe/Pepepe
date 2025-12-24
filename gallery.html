@@ -12,85 +12,75 @@
   <!-- Scrollable content -->
   <div class="content">
 
-<header class="gallery-header">
-  <h1>✧ gallery ✧</h1>
-  <p>⁺‧₊examples of my past works₊‧⁺</p>
-  <p> ........................... <p>
+    <header class="gallery-header">
+      <h1>✧ gallery ✧</h1>
+      <p>⁺‧₊examples of my past works₊‧⁺</p>
+      <p>...........................</p>
+    </header>
 
-</header>
+    <section class="gallery">
+      <a href="images/art15-full.jpg" class="gallery-item">
+        <img src="images/art15-thumb.jpg" loading="lazy" alt="Artwork 15">
+      </a>
+      <a href="images/art14-full.jpg" class="gallery-item">
+        <img src="images/art14-thumb.jpg" loading="lazy" alt="Artwork 14">
+      </a>
+      <a href="images/art13-full.jpg" class="gallery-item">
+        <img src="images/art13-thumb.jpg" loading="lazy" alt="Artwork 13">
+      </a>
+      <a href="images/art12-full.jpg" class="gallery-item">
+        <img src="images/art12-thumb.jpg" loading="lazy" alt="Artwork 12">
+      </a>
+      <a href="images/art11-full.jpg" class="gallery-item">
+        <img src="images/art11-thumb.jpg" loading="lazy" alt="Artwork 11">
+      </a>
+      <a href="images/art10-full.jpg" class="gallery-item">
+        <img src="images/art10-thumb.jpg" loading="lazy" alt="Artwork 10">
+      </a>
+      <a href="images/art9-full.jpg" class="gallery-item">
+        <img src="images/art9-thumb.jpg" loading="lazy" alt="Artwork 9">
+      </a>
+      <a href="images/art8-full.jpg" class="gallery-item">
+        <img src="images/art8-thumb.jpg" loading="lazy" alt="Artwork 8">
+      </a>
+      <a href="images/art7-full.jpg" class="gallery-item">
+        <img src="images/art7-thumb.jpg" loading="lazy" alt="Artwork 7">
+      </a>
+      <a href="images/art6-full.jpg" class="gallery-item">
+        <img src="images/art6-thumb.jpg" loading="lazy" alt="Artwork 6">
+      </a>
+      <a href="images/art5-full.jpg" class="gallery-item">
+        <img src="images/art5-thumb.jpg" loading="lazy" alt="Artwork 5">
+      </a>
+      <a href="images/art4-full.jpg" class="gallery-item">
+        <img src="images/art4-thumb.jpg" loading="lazy" alt="Artwork 4">
+      </a>
+      <a href="images/art3-full.jpg" class="gallery-item">
+        <img src="images/art3-thumb.jpg" loading="lazy" alt="Artwork 3">
+      </a>
+      <a href="images/art2-full.jpg" class="gallery-item">
+        <img src="images/art2-thumb.jpg" loading="lazy" alt="Artwork 2">
+      </a>
+      <a href="images/art1-full.jpg" class="gallery-item">
+        <img src="images/art1-thumb.jpg" loading="lazy" alt="Artwork 1">
+      </a>
+    </section>
 
-<section class="gallery">
-  <a href="images/art15-full.jpg" class="gallery-item">
-    <img src="images/art15-thumb.jpg" loading="lazy" alt="">
-  </a>
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <img id="lightbox-img" alt="Expanded artwork">
+    </div>
 
-  <a href="images/art14-full.jpg" class="gallery-item">
-    <img src="images/art14-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art13-full.jpg" class="gallery-item">
-    <img src="images/art13-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art12-full.jpg" class="gallery-item">
-    <img src="images/art12-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art11-full.jpg" class="gallery-item">
-    <img src="images/art11-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art10-full.jpg" class="gallery-item">
-    <img src="images/art10-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art9-full.jpg" class="gallery-item">
-    <img src="images/art9-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art8-full.jpg" class="gallery-item">
-    <img src="images/art8-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art7-full.jpg" class="gallery-item">
-    <img src="images/art7-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art6-full.jpg" class="gallery-item">
-    <img src="images/art6-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art5-full.jpg" class="gallery-item">
-    <img src="images/art5-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art4-full.jpg" class="gallery-item">
-    <img src="images/art4-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art3-full.jpg" class="gallery-item">
-    <img src="images/art3-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art2-full.jpg" class="gallery-item">
-    <img src="images/art2-thumb.jpg" loading="lazy" alt="">
-  </a>
-
-  <a href="images/art1-full.jpg" class="gallery-item">
-    <img src="images/art1-thumb.jpg" loading="lazy" alt="">
-  </a>
-</section>
-
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <img id="lightbox-img">
-</div>
+  </div>
 
 <script>
-  const lightbox = document.getElementById("lightbox");
+const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
 document.querySelectorAll(".gallery-item").forEach(item => {
+  const img = item.querySelector("img");
+  img.addEventListener("load", () => img.classList.add("loaded"));
+
   item.addEventListener("click", e => {
     e.preventDefault();
     lightboxImg.src = item.href;
@@ -99,25 +89,28 @@ document.querySelectorAll(".gallery-item").forEach(item => {
   });
 });
 
+// Prevent click on image from closing lightbox
+lightboxImg.addEventListener("click", e => e.stopPropagation());
+
 lightbox.addEventListener("click", () => {
   lightbox.classList.remove("active");
   lightboxImg.src = "";
   document.body.style.overflow = "";
 });
 
-</script>
-
-<script>
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  if (img.complete) {
-    img.classList.add("loaded");
-  } else {
-    img.addEventListener("load", () => {
-      img.classList.add("loaded");
-    });
+// Close lightbox with Escape key
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("active");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
   }
 });
 </script>
 
+</body>
+</html>
+
 
 </body>
+
