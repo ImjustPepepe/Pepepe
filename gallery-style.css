@@ -82,7 +82,7 @@ body {
   .gallery-item:nth-last-child(1),
   .gallery-item:nth-last-child(2),
   .gallery-item:nth-last-child(3) {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 }
 
@@ -143,6 +143,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 
 
 
