@@ -1,3 +1,4 @@
+/* ===== BACKGROUND ===== */
 .bg {
   position: fixed;
   inset: 0;
@@ -6,10 +7,9 @@
     radial-gradient(circle at 80% 70%, rgba(200,200,255,0.05), transparent 40%);
   filter: blur(40px);
   opacity: 0.9;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 }
-
 
 body::before {
   content: "";
@@ -18,14 +18,14 @@ body::before {
   background-image: url("images/bg-glitch.png");
   background-size: cover;
   background-position: center top;
-  z-index: -2;
+  z-index: -3;
 }
 
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
   pointer-events: none;
 }
@@ -34,8 +34,8 @@ body::after {
 .content {
   position: relative;
   z-index: 1;
-  overflow-y: auto; /* scroll inside content */
-  max-height: 100vh; /* full viewport height */
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 body {
@@ -45,9 +45,7 @@ body {
   font-family: system-ui, sans-serif;
   position: relative;
   overflow-x: hidden;
-
 }
-
 
 .gallery-header {
   text-align: center;
@@ -61,7 +59,7 @@ body {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
   padding: 40px;
 }
@@ -81,15 +79,12 @@ body {
     padding: 16px;
   }
 
-  /* disable big-image spanning on mobile */
   .gallery-item:nth-last-child(1),
   .gallery-item:nth-last-child(2),
   .gallery-item:nth-last-child(3) {
     grid-column: span 1;
   }
 }
-
-
 
 .gallery-item {
   background: #111;
@@ -99,6 +94,9 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: blur(6px);
 }
 
 .gallery-item img.loaded {
@@ -106,29 +104,28 @@ body {
   filter: blur(0);
 }
 
-
 .gallery-item:hover img {
   opacity: 0.75;
 }
 
+/* Last 3 images span 2 columns on large screens */
 .gallery-item:nth-last-child(1),
 .gallery-item:nth-last-child(2), 
-.gallery-item:nth-last-child(3) 
-{ grid-column: span 2; }
+.gallery-item:nth-last-child(3) { 
+  grid-column: span 2; 
+}
 
+/* ===== LIGHTBOX ===== */
 #lightbox {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.9);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
-
   z-index: 9999;
 }
 
@@ -142,11 +139,12 @@ body {
   max-height: 90vh;
 }
 
-
 html, body {
   height: 100%;
   margin: 0;
 }
+
+
 
 
 
