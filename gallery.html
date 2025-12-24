@@ -67,10 +67,11 @@
       </a>
     </section>
 
-    <!-- LIGHTBOX -->
-    <div id="lightbox">
-      <img id="lightbox-img" alt="Expanded artwork">
-    </div>
+ <!-- LIGHTBOX -->
+<div id="lightbox">
+  <img id="lightbox-img" alt="Expanded artwork">
+</div>
+
 
   </div>
 
@@ -79,38 +80,75 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
 document.querySelectorAll(".gallery-item").forEach(item => {
-  const img = item.querySelector("img");
-  img.addEventListener("load", () => img.classList.add("loaded"));
-
   item.addEventListener("click", e => {
     e.preventDefault();
-    lightboxImg.src = item.href;
+
+    // Reset previous image
+    lightbox.classList.remove("loaded");
+    lightboxImg.classList.remove("loaded");
+    lightboxImg.src = ""; 
+
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
+
+    // Set the new image
+    lightboxImg.src = item.href;
+
+    // Wait for it to load
+    lightboxImg.onload = () => {
+      lightboxImg.classList.add("loaded"); // fade in image
+      lightbox.classList.add("loaded");    // hide spinner
+    };
   });
 });
+
+// Close lightbox
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active", "loaded");
+  lightboxImg.classList.remove("loaded");
+  document.body.style.overflow = "";
+  // remove src after transition to avoid broken image icon
+  setTimeout(() => {
+    lightboxImg.src = "";
+  }, 350); // matches lightbox fade-out duration
+});
+
 
 // Prevent click on image from closing lightbox
 lightboxImg.addEventListener("click", e => e.stopPropagation());
 
-lightbox.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-  lightboxImg.src = "";
-  document.body.style.overflow = "";
-});
-
 // Close lightbox with Escape key
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
-    lightbox.classList.remove("active");
+    lightbox.classList.remove("active", "loaded");
     lightboxImg.src = "";
+    lightboxImg.classList.remove("loaded");
     document.body.style.overflow = "";
   }
 });
+
+</script>
+
+<script>
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("load", () => {
+    img.classList.add("loaded");           // fade-in the image
+    img.parentElement.classList.add("loaded"); // hide the spinner
+  });
+});
+
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
