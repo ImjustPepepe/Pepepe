@@ -67,9 +67,11 @@
       </a>
     </section>
 
- <!-- LIGHTBOX -->
+<!-- LIGHTBOX -->
 <div id="lightbox">
+  <span class="arrow prev">&#10094;</span>
   <img id="lightbox-img" alt="Expanded artwork">
+  <span class="arrow next">&#10095;</span>
 </div>
 
 
@@ -78,70 +80,76 @@
 <script>
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+let currentIndex = 0;
 
-document.querySelectorAll(".gallery-item").forEach(item => {
+function openLightbox(src) {
+  lightbox.classList.remove("loaded");
+  lightboxImg.classList.remove("loaded");
+  lightboxImg.style.display = "none";
+
+  lightbox.classList.add("active");
+  lightboxImg.src = src;
+
+  lightboxImg.onload = () => {
+    lightboxImg.classList.add("loaded");
+    lightbox.classList.add("loaded");
+    lightboxImg.style.display = "block";
+  };
+}
+
+// Open lightbox on thumbnail click
+galleryItems.forEach((item, index) => {
   item.addEventListener("click", e => {
     e.preventDefault();
-
-    // Reset previous image
-    lightbox.classList.remove("loaded");
-    lightboxImg.classList.remove("loaded");
-    lightboxImg.src = ""; 
-
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
-
-    // Set the new image
-    lightboxImg.src = item.href;
-
-    // Wait for it to load
-    lightboxImg.onload = () => {
-      lightboxImg.classList.add("loaded"); // fade in image
-      lightbox.classList.add("loaded");    // hide spinner
-    };
+    currentIndex = index;
+    openLightbox(item.href);
   });
 });
 
-// Close lightbox
-lightbox.addEventListener("click", () => {
-  lightbox.classList.remove("active", "loaded");
-  lightboxImg.classList.remove("loaded");
-  document.body.style.overflow = "";
-  // remove src after transition to avoid broken image icon
-  setTimeout(() => {
-    lightboxImg.src = "";
-  }, 350); // matches lightbox fade-out duration
+// Arrow navigation
+const prevArrow = document.querySelector("#lightbox .prev");
+const nextArrow = document.querySelector("#lightbox .next");
+
+prevArrow.addEventListener("click", e => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  openLightbox(galleryItems[currentIndex].href);
 });
 
+nextArrow.addEventListener("click", e => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  openLightbox(galleryItems[currentIndex].href);
+});
 
 // Prevent click on image from closing lightbox
 lightboxImg.addEventListener("click", e => e.stopPropagation());
 
-// Close lightbox with Escape key
+// Close lightbox on background click
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active", "loaded");
+  lightboxImg.classList.remove("loaded");
+  setTimeout(() => { lightboxImg.src = ""; }, 350);
+});
+
+// Keyboard navigation
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (e.key === "ArrowLeft") {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    openLightbox(galleryItems[currentIndex].href);
+  } else if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % 	galleryItems.length;
+    openLightbox(galleryItems[currentIndex].href);
+  } else if (e.key === "Escape") {
     lightbox.classList.remove("active", "loaded");
-    lightboxImg.src = "";
     lightboxImg.classList.remove("loaded");
-    document.body.style.overflow = "";
+    setTimeout(() => { lightboxImg.src = ""; }, 350);
   }
 });
 
-</script>
-
-<script>
-
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  img.addEventListener("load", () => {
-    img.classList.add("loaded");           // fade-in the image
-    img.parentElement.classList.add("loaded"); // hide the spinner
-  });
-});
-
-</script>
-
-</body>
-</html>
 
 
 
