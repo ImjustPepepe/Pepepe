@@ -30,12 +30,16 @@ body::before {
   background-position: center top;
   z-index: -2;
 
-  /* animation start state */
   opacity: 0;
   filter: blur(20px);
+  /* remove animation for now */
+}
 
+body.loaded::before {
   animation: bgFadeIn 1.2s ease forwards;
 }
+
+
 
 /* === SOFT BLUR / SMOKE OVERLAY === */
 .bg {
@@ -133,6 +137,25 @@ body::after {
     filter: blur(0);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
