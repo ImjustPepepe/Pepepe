@@ -79,12 +79,19 @@ body {
     padding: 16px;
   }
 
+  /* Reset all items to span 1 column by default */
+  .gallery-item {
+    grid-column: span 1;
+  }
+
+  /* Last 3 images full width */
   .gallery-item:nth-last-child(1),
   .gallery-item:nth-last-child(2),
   .gallery-item:nth-last-child(3) {
     grid-column: span 2;
   }
 }
+
 
 .gallery-item {
   background: #111;
@@ -143,6 +150,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 
 
 
