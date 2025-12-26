@@ -141,7 +141,7 @@ document.addEventListener("keydown", e => {
     currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     openLightbox(galleryItems[currentIndex].href);
   } else if (e.key === "ArrowRight") {
-    currentIndex = (currentIndex + 1) % 	galleryItems.length;
+    currentIndex = (currentIndex + 1) % galleryItems.length;
     openLightbox(galleryItems[currentIndex].href);
   } else if (e.key === "Escape") {
     lightbox.classList.remove("active", "loaded");
@@ -149,6 +149,7 @@ document.addEventListener("keydown", e => {
     setTimeout(() => { lightboxImg.src = ""; }, 350);
   }
 });
+
 
 
 
