@@ -150,10 +150,24 @@ document.addEventListener("keydown", e => {
   }
 });
 
-  </script>
+
+
+</script>
+
+<script>
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("load", () => {
+    img.classList.add("loaded");           // fade-in the image
+    img.parentElement.classList.add("loaded"); // hide the spinner
+  });
+});
+
+</script>
 
 </body>
 </html>
+
 
 
 
