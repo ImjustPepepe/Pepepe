@@ -25,7 +25,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("images/bg-glitch.png");
+  background-image: url("images/bg-glitch.webp");
   background-size: cover;
   background-position: center top;
   z-index: -2;
@@ -165,6 +165,7 @@ body::after {
   opacity: 0.85;
   transform: translateY(-1px);
 }
+
 
 
 
