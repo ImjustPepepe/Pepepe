@@ -138,6 +138,35 @@ body::after {
   }
 }
 
+.contact-footer {
+  position: fixed;
+  bottom: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.contact-btn {
+  pointer-events: auto;
+  text-decoration: none;
+  color: #cfcfcf;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+
 
 
 
