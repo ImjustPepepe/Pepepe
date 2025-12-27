@@ -25,7 +25,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("images/bg-glitch.png"); /* or another bg */
+  background-image: url("images/bg-glitch.webp"); /* or another bg */
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -214,6 +214,7 @@ body::after {
     font-size: 1rem;
   }
 }
+
 
 
 
