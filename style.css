@@ -25,7 +25,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("images/bg-glitch.webp");
+  background-image: url("images/bg-glitch.png");
   background-size: cover;
   background-position: center top;
   z-index: -2;
@@ -34,11 +34,6 @@ body::before {
   filter: blur(20px);
   /* remove animation for now */
 }
-
-body.loaded::before {
-  animation: bgFadeIn 1.2s ease forwards;
-}
-
 
 
 /* === SOFT BLUR / SMOKE OVERLAY === */
@@ -90,7 +85,17 @@ body::after {
 .logo {
   max-width: 420px;
   width: 80%;
-  opacity: 0.9;
+
+  opacity: 0;
+  filter: blur(20px);
+}
+
+body.loaded::before {
+  animation: bgFadeIn 1.2s ease forwards;
+}
+
+body.loaded .logo {
+  animation: logoFadeIn 1.2s ease forwards;
 }
 
 .role {
@@ -131,6 +136,13 @@ body::after {
   }
 }
 
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 @keyframes bgFadeIn {
   to {
     opacity: 1;
@@ -165,6 +177,26 @@ body::after {
   opacity: 0.85;
   transform: translateY(-1px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
