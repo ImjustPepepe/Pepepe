@@ -17,6 +17,7 @@ body {
   font-family: system-ui, sans-serif;
   position: relative;
   overflow-x: hidden;
+  overscroll-behavior: none;
 
 }
 
@@ -178,6 +179,7 @@ body.loaded .logo {
   opacity: 0.85;
   transform: translateY(-1px);
 }
+
 
 
 
