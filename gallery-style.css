@@ -125,11 +125,11 @@ body {
 
 
 /* Last 3 images span 2 columns on large screens */
-.gallery-item:nth-last-child(1),
-.gallery-item:nth-last-child(2), 
-.gallery-item:nth-last-child(3) { 
-  grid-column: span 2; 
-}
+/.gallery-item:nth-last-child(1),
+/.gallery-item:nth-last-child(2), 
+/.gallery-item:nth-last-child(3) { 
+/  grid-column: span 2; 
+/}
 
 /* ===== LIGHTBOX ===== */
 #lightbox {
@@ -217,25 +217,44 @@ body {
   right: 20px;
 }
 
+// Open lightbox
+galleryItems.forEach((item, index) => {
+  item.addEventListener("click", e => {
+    e.preventDefault();
+    currentIndex = index;
+    openLightbox(item.href);
+
+    // Freeze background scroll
+    document.body.style.overflow = "hidden";
+  });
+});
+
+// Close lightbox
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active", "loaded");
+  lightboxImg.classList.remove("loaded");
+
+  // Restore scroll
+  document.body.style.overflow = "";
+  setTimeout(() => { lightboxImg.src = ""; }, 350);
+});
+
+// Close with Escape key
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("active", "loaded");
+    lightboxImg.src = "";
+    lightboxImg.classList.remove("loaded");
+    document.body.style.overflow = ""; // restore scroll
+  }
+});
+
+
 
 html, body {
   height: 100%;
   margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
